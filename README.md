@@ -1,3 +1,6 @@
+# 티아카데미 JPA 프로그래밍 기본기 다지기 실습
+https://www.youtube.com/watch?v=WfrSN9Z7MiA&list=PL9mhQYIlKEhfpMVndI23RwWTL9-VL-B7U&index=1
+
 # H2 Database 설치
 
 [H2 데이터베이스 사이트 링크](https://h2database.com/html/main.html)
