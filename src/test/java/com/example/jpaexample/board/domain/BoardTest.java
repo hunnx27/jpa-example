@@ -1,6 +1,7 @@
 package com.example.jpaexample.board.domain;
 
-import com.example.jpaexample.board.infrastructure.BoardRepository;
+import com.example.jpaexample.modules.board.domain.Board;
+import com.example.jpaexample.modules.board.infrastructure.BoardRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

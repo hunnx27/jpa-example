@@ -18,6 +18,7 @@ public enum ErrorCode {
     UNAUTHORIZED_MEMBER(HttpStatus.UNAUTHORIZED, "현재 내 계정 정보가 존재하지 않습니다"),
 
     /* 404 NOT_FOUND : Resource 를 찾을 수 없음 */
+    USER_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 게시판 정보를 찾을 수 없습니다"),
     MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 유저 정보를 찾을 수 없습니다"),
     REFRESH_TOKEN_NOT_FOUND(HttpStatus.NOT_FOUND, "로그아웃 된 사용자입니다"),
     NOT_FOLLOW(HttpStatus.NOT_FOUND, "팔로우 중이지 않습니다"),

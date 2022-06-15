@@ -1,4 +1,4 @@
-package com.example.jpaexample.board.domain;
+package com.example.jpaexample.modules.board.domain;
 
 import lombok.*;
 
@@ -20,7 +20,7 @@ public class Board {
     private String content;
     private String writer;
     private int hits;
-    private char deleteYn;
+    private char deleteYn='N';
     private LocalDateTime createdDate = LocalDateTime.now();
     private LocalDateTime modifiedDate;
 
@@ -32,5 +32,16 @@ public class Board {
         this.writer = writer;
         this.hits = hits;
         this.deleteYn = deleteYn;
+    }
+
+    public void update(String title, String content, String writer) {
+        if(title != null) this.title = title;
+        if(content != null) this.content = content;
+        if(writer != null) this.writer = writer;
+        this.modifiedDate = LocalDateTime.now();
+    }
+
+    public void deleteSoft(){
+        this.deleteYn = 'Y';
     }
 }
