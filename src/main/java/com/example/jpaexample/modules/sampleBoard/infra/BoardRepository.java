@@ -1,4 +1,4 @@
-package com.example.jpaexample.modules.sampleBoard.infrastructure;
+package com.example.jpaexample.modules.sampleBoard.infra;
 
 import com.example.jpaexample.modules.sampleBoard.domain.Board;
 import org.springframework.data.jpa.repository.JpaRepository;

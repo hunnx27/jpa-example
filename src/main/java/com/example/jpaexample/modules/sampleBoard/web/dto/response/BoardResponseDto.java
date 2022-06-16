@@ -3,7 +3,7 @@ import com.example.jpaexample.modules.sampleBoard.domain.Board;
 import lombok.Getter;
 
 /**
- * 응답 객체
+ * Board API 응답 객체
  * (!!! 절대 Entity 자체로 응답하면안됨 !!!)
  */
 @Getter

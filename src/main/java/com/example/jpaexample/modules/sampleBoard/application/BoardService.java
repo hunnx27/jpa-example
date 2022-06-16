@@ -4,7 +4,7 @@ import com.example.jpaexample.modules.sampleBoard.web.dto.response.BoardResponse
 import com.example.jpaexample.modules.sampleBoard.web.dto.request.BoardSaveRequestDto;
 import com.example.jpaexample.modules.sampleBoard.web.dto.request.BoardUpdateRequestDto;
 import com.example.jpaexample.modules.sampleBoard.domain.Board;
-import com.example.jpaexample.modules.sampleBoard.infrastructure.BoardRepository;
+import com.example.jpaexample.modules.sampleBoard.infra.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
