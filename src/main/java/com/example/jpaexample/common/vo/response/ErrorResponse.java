@@ -20,13 +20,16 @@ public class ErrorResponse {
     private final String message;
 
     public static ResponseEntity<ErrorResponse> toResponseEntity(ErrorCode errorCode) {
+        return toResponseEntity(errorCode, null);
+    }
+    public static ResponseEntity<ErrorResponse> toResponseEntity(ErrorCode errorCode, String message) {
         return ResponseEntity
                 .status(errorCode.getHttpStatus())
                 .body(ErrorResponse.builder()
                         .status(errorCode.getHttpStatus().value())
                         .error(errorCode.getHttpStatus().name())
                         .code(errorCode.name())
-                        .message(errorCode.getDetail())
+                        .message(message!=null? message : errorCode.getDetail())
                         .build()
                 );
     }
