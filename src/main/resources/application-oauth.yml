@@ -1,0 +1,4 @@
+spring.security.oauth2.client.registration.google:
+  client-id: { client-id입력 }
+  client-secret: { client-secret-key입력 }
+  scope: profile,email

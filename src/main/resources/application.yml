@@ -1,12 +1,15 @@
-#??? ??(Data Source)
+
 spring:
+  profiles:
+    include: oauth
+  #??? ??(Data Source)
   datasource:
     hikari:
 #      driver-class-name: com.mysql.cj.jdbc.Driver
 #      driver-class-name: org.h2.Driver
       driver-calss-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
 #      jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/jpa
-      jdbc-url: jdbc:log4jdbc:h2:tcp://localhost/~/test
+      jdbc-url: jdbc:log4jdbc:h2:tcp://localhost/~/test;MODE=MySQL
       username: sa
       password:
       idle-timeout: 10000
