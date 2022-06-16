@@ -1,5 +1,4 @@
-package com.example.jpaexample.modules.board.application.dto;
-
+package com.example.jpaexample.modules.sampleBoard.application.dto;
 import com.example.jpaexample.modules.sampleBoard.domain.Board;
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package com.example.jpaexample.modules.board.domain;
+package com.example.jpaexample.modules.sampleBoard.domain;
 
 import lombok.*;
 

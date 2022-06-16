@@ -1,4 +1,4 @@
-package com.example.jpaexample.modules.board.web;
+package com.example.jpaexample.modules.sampleBoard.web;
 
 import com.example.jpaexample.common.vo.exception.CustomException;
 import com.example.jpaexample.common.enums.ErrorCode;

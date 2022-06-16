@@ -1,12 +1,10 @@
-package com.example.jpaexample.modules.board.application;
+package com.example.jpaexample.modules.sampleBoard.application;
 
-import com.example.jpaexample.common.enums.ErrorCode;
-import com.example.jpaexample.common.vo.exception.CustomException;
-import com.example.jpaexample.modules.board.application.dto.BoardResponseDto;
-import com.example.jpaexample.modules.board.application.dto.BoardSaveRequestDto;
-import com.example.jpaexample.modules.board.application.dto.BoardUpdateRequestDto;
-import com.example.jpaexample.modules.board.domain.Board;
-import com.example.jpaexample.modules.board.infrastructure.BoardRepository;
+import com.example.jpaexample.modules.sampleBoard.application.dto.BoardResponseDto;
+import com.example.jpaexample.modules.sampleBoard.application.dto.BoardSaveRequestDto;
+import com.example.jpaexample.modules.sampleBoard.application.dto.BoardUpdateRequestDto;
+import com.example.jpaexample.modules.sampleBoard.domain.Board;
+import com.example.jpaexample.modules.sampleBoard.infrastructure.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;

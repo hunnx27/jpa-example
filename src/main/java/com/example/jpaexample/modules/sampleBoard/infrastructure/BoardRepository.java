@@ -1,6 +1,6 @@
-package com.example.jpaexample.modules.board.infrastructure;
+package com.example.jpaexample.modules.sampleBoard.infrastructure;
 
-import com.example.jpaexample.modules.board.domain.Board;
+import com.example.jpaexample.modules.sampleBoard.domain.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
