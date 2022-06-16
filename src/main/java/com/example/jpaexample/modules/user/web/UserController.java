@@ -1,4 +1,4 @@
-package com.example.jpaexample.modules.member.web;
+package com.example.jpaexample.modules.user.web;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/api/members")
-public class MemberController {
+public class UserController {
 }

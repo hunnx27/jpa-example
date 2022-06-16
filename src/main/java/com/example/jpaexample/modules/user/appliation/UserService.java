@@ -1,4 +1,4 @@
-package com.example.jpaexample.modules.member.appliation;
+package com.example.jpaexample.modules.user.appliation;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,5 +10,5 @@ import javax.transaction.Transactional;
 @Slf4j
 @RequiredArgsConstructor
 @Transactional
-public class MemberService {
+public class UserService {
 }
