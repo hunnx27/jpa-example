@@ -24,7 +24,6 @@ class BoardTest {
                 .content("게시글을 입력했다")
                 .writer("아이언맨")
                 .hits(0)
-                .deleteYn('N')
                 .build();
 
         // 2. 게시글 저장

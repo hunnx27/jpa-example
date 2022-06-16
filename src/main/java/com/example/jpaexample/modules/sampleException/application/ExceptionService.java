@@ -1,7 +1,7 @@
 package com.example.jpaexample.modules.sampleException.application;
 
-import com.example.jpaexample.common.enums.ErrorCode;
-import com.example.jpaexample.common.vo.exception.CustomException;
+import com.example.jpaexample.core.enums.ErrorCode;
+import com.example.jpaexample.core.vo.exception.CustomException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

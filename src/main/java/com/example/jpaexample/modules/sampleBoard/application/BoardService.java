@@ -1,8 +1,8 @@
 package com.example.jpaexample.modules.sampleBoard.application;
 
-import com.example.jpaexample.modules.sampleBoard.application.dto.BoardResponseDto;
-import com.example.jpaexample.modules.sampleBoard.application.dto.BoardSaveRequestDto;
-import com.example.jpaexample.modules.sampleBoard.application.dto.BoardUpdateRequestDto;
+import com.example.jpaexample.modules.sampleBoard.web.dto.response.BoardResponseDto;
+import com.example.jpaexample.modules.sampleBoard.web.dto.request.BoardSaveRequestDto;
+import com.example.jpaexample.modules.sampleBoard.web.dto.request.BoardUpdateRequestDto;
 import com.example.jpaexample.modules.sampleBoard.domain.Board;
 import com.example.jpaexample.modules.sampleBoard.infrastructure.BoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -42,8 +42,8 @@ public class BoardService {
     }
 
     // Read(Many)
-    public List<BoardResponseDto> findAll(Long id){
-        Sort sort = Sort.by(Sort.Direction.DESC, "id", "createdDate");
+    public List<BoardResponseDto> findAll(){
+        Sort sort = Sort.by(Sort.Direction.DESC, "id", "createdAt");
         List<Board> boardList = boardRepository.findAll(sort);
 
         List<BoardResponseDto> responseBoardlist =

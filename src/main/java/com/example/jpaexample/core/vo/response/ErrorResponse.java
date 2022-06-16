@@ -1,6 +1,6 @@
-package com.example.jpaexample.common.vo.response;
+package com.example.jpaexample.core.vo.response;
 
-import com.example.jpaexample.common.enums.ErrorCode;
+import com.example.jpaexample.core.enums.ErrorCode;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,8 @@
-package com.example.jpaexample.common.advice;
+package com.example.jpaexample.core.advice;
 
-import com.example.jpaexample.common.enums.ErrorCode;
-import com.example.jpaexample.common.vo.exception.CustomException;
-import com.example.jpaexample.common.vo.response.ErrorResponse;
+import com.example.jpaexample.core.enums.ErrorCode;
+import com.example.jpaexample.core.vo.exception.CustomException;
+import com.example.jpaexample.core.vo.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

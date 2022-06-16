@@ -1,4 +1,4 @@
-package com.example.jpaexample.common.enums;
+package com.example.jpaexample.core.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

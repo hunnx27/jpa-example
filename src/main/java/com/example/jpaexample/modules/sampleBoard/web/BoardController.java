@@ -1,33 +1,51 @@
 package com.example.jpaexample.modules.sampleBoard.web;
 
-import com.example.jpaexample.common.vo.exception.CustomException;
-import com.example.jpaexample.common.enums.ErrorCode;
+import com.example.jpaexample.modules.sampleBoard.application.BoardService;
+import com.example.jpaexample.modules.sampleBoard.web.dto.request.BoardSaveRequestDto;
+import com.example.jpaexample.modules.sampleBoard.web.dto.request.BoardUpdateRequestDto;
+import com.example.jpaexample.modules.sampleBoard.web.dto.response.BoardResponseDto;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Slf4j
-@RequestMapping("/api/board")
+@RequiredArgsConstructor
+@RequestMapping("/api/boards")
 public class BoardController {
 
+    private final BoardService boardService;
 
-    @GetMapping("/test")
-    public String testGet(){
-        throw new RuntimeException("Holy! Runtime Exception!");
-    }
-    @PostMapping("/test")
-    public String test(){
-        throw new RuntimeException("Holy! Runtime Exception!");
+    @PostMapping("")
+    public BoardResponseDto create(@RequestBody BoardSaveRequestDto newBoard){
+        return boardService.save(newBoard);
     }
 
-    @GetMapping("/exception")
-    public String exception() throws Exception {
-        throw new Exception("Holy! Exception!");
+    @GetMapping("{id}")
+    public BoardResponseDto readOne(@PathVariable Long id){
+        return boardService.findOne(id);
     }
 
-    @GetMapping("/customException")
-    public String customException() throws CustomException {
-        throw new CustomException(ErrorCode.CANNOT_FOLLOW_MYSELF);
+    @GetMapping("")
+    public List<BoardResponseDto> readList(){
+        return boardService.findAll();
+    }
+
+    @PutMapping("{id}")
+    public Long update(@PathVariable Long id, @RequestBody BoardUpdateRequestDto updateBoard){
+        return boardService.update(id, updateBoard);
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteHard(@PathVariable Long id){
+        boardService.deleteHard(id);
+    }
+
+    @PutMapping("{id}/deleteYn/Y")
+    public void deleteSoft(@PathVariable Long id){
+        boardService.deleteSoft(id);
     }
 
 }

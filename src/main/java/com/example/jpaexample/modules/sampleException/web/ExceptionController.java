@@ -1,6 +1,5 @@
 package com.example.jpaexample.modules.sampleException.web;
 
-import com.example.jpaexample.common.vo.exception.CustomException;
 import com.example.jpaexample.modules.sampleException.application.ExceptionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
