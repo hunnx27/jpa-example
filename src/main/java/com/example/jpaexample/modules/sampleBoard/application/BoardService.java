@@ -26,9 +26,6 @@ public class BoardService {
     public BoardResponseDto save(BoardSaveRequestDto boardDto){
         Board board = boardDto.toEntity();
         Board savedBoard = boardRepository.save(board);
-        log.info(Long.toString(savedBoard.getId()));
-        boardRepository.flush();//DB에 저장(그전까지는 캐시 물고 있음, ID는 디비 저장되고 주기 때문에 플러시 후 받아야함)
-        log.info(Long.toString(savedBoard.getId()));
         BoardResponseDto responseBoard = new BoardResponseDto(savedBoard);
         return responseBoard;
     }
@@ -51,7 +48,7 @@ public class BoardService {
                                             // 2. 반복행위(리스트의 모든 board를 BoardResponseDto로 래핑함)
                                             // 3. 작업된 결과를 List로 뽑음
                                             boardList.stream()
-                                            .map(board -> new BoardResponseDto(board))
+                                            .map(board ->new BoardResponseDto(board))
                                             .collect(Collectors.toList());
         return responseBoardlist;
     }
