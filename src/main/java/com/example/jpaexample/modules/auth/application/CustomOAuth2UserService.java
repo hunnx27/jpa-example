@@ -1,6 +1,6 @@
-package com.example.jpaexample.config;
+package com.example.jpaexample.modules.auth.application;
 
-import com.example.jpaexample.config.auth.dto.OAuthAttributes;
+import com.example.jpaexample.modules.auth.web.dto.OAuthAttributes;
 import com.example.jpaexample.modules.user.domain.User;
 import com.example.jpaexample.modules.user.infra.UserRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.jpaexample.config.auth.dto;
+package com.example.jpaexample.modules.auth.web.dto;
 
 import com.example.jpaexample.modules.user.domain.User;
 import com.example.jpaexample.modules.user.domain.enums.Role;

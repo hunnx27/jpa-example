@@ -53,3 +53,14 @@ ex)
 아래링크의 **"계층별 설명"** 참고
 > https://velog.io/@jeb1225/DDD%EC%9D%98-%EA%B3%84%EC%B8%B5%EA%B5%AC%EC%A1%B0Layered-architecture
 
+# Spring Security OAuth2 + JWT Token + Stateless
+참조 링크
+- https://velog.io/@tmdgh0221/Spring-Security-%EC%99%80-OAuth-2.0-%EC%99%80-JWT-%EC%9D%98-%EC%BD%9C%EB%9D%BC%EB%B3%B4
+- https://ozofweird.tistory.com/m/582
+- https://webfirewood.tistory.com/115
+- https://velog.io/@ehdrms2034/Spring-Security-JWT-Redis%EB%A5%BC-%ED%86%B5%ED%95%9C-%ED%9A%8C%EC%9B%90%EC%9D%B8%EC%A6%9D%ED%97%88%EA%B0%80-%EA%B5%AC%ED%98%84
+- https://velog.io/@shinmj1207/Spring-Spring-Security-JWT-%EB%A1%9C%EA%B7%B8%EC%9D%B8#%EC%9A%A9%EC%96%B4%EC%A0%95%EB%A6%AC
+- https://wonyong-jang.github.io/spring/2020/08/20/Spring-Security-oauth2-jwt-1.html
+- https://wonyong-jang.github.io/spring/2020/08/27/Spring-Security-oauth2-jwt-2.html
+- https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-1/
+- https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-2/
