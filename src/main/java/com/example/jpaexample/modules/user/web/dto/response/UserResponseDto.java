@@ -1,5 +1,8 @@
 package com.example.jpaexample.modules.user.web.dto.response;
 
+import com.example.jpaexample.modules.user.domain.User;
+import com.example.jpaexample.modules.user.domain.enums.AuthProvider;
+import com.example.jpaexample.modules.user.domain.enums.Role;
 import lombok.Getter;
 
 /**
@@ -8,4 +11,19 @@ import lombok.Getter;
  */
 @Getter
 public class UserResponseDto {
+    private Long id;
+    private String name;
+    private String email;
+    private String picture;
+    private AuthProvider provider;
+    private Role role;
+
+    public UserResponseDto(User user) {
+        this.id = user.getId();
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.picture = user.getPicture();
+        this.provider = user.getProvider();
+        this.role = user.getRole();
+    }
 }

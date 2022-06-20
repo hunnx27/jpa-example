@@ -1,6 +1,7 @@
 package com.example.jpaexample.modules.auth.web;
 
 import com.example.jpaexample.core.enums.ErrorCode;
+import com.example.jpaexample.core.vo.exception.CustomException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -16,14 +17,16 @@ import java.io.IOException;
  */
 @Slf4j
 @Component
-public class JwtAuthenticationExceptionEntryPoint implements AuthenticationEntryPoint {
+public class TokenAuthenticationExceptionEntryPoint implements AuthenticationEntryPoint {
 
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
         log.error("Responding with unauthorized error. Message - {}", e.getMessage());
-        ErrorCode unAuthorizationCode = (ErrorCode) request.getAttribute("unauthorization.code");
-        request.setAttribute("response.failure.code", unAuthorizationCode.name());
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, unAuthorizationCode.getDetail());
+        //ErrorCode unAuthorizationCode = (ErrorCode) request.getAttribute("unauthorization.code");
+        //request.setAttribute("response.failure.code", unAuthorizationCode.name());
+        //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, unAuthorizationCode.getDetail());
+        throw new CustomException(ErrorCode.INVALID_AUTH_TOKEN);
+        //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, e.getMessage());
     }
 }

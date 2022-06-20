@@ -64,3 +64,5 @@ ex)
 - https://wonyong-jang.github.io/spring/2020/08/27/Spring-Security-oauth2-jwt-2.html
 - https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-1/
 - https://www.callicoder.com/spring-boot-security-oauth2-social-login-part-2/
+- http://yoonbumtae.com/?p=3000(SPA(Sessionless) OAuth2 + JWT)
+- http://yoonbumtae.com/?p=2652(Sesseion OAuth2 + JWT)

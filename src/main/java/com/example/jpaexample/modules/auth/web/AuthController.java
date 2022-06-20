@@ -2,16 +2,17 @@ package com.example.jpaexample.modules.auth.web;
 
 import com.example.jpaexample.core.enums.ErrorCode;
 import com.example.jpaexample.core.vo.exception.CustomException;
-import com.example.jpaexample.modules.auth.application.util.JwtTokenProvider;
+import com.example.jpaexample.modules.auth.application.util.TokenProvider;
 import com.example.jpaexample.modules.auth.web.dto.request.LoginRequest;
 import com.example.jpaexample.modules.auth.web.dto.request.SignUpRequest;
 import com.example.jpaexample.modules.auth.web.dto.response.ApiResponse;
 import com.example.jpaexample.modules.auth.web.dto.response.AuthResponse;
 import com.example.jpaexample.modules.user.domain.User;
+import com.example.jpaexample.modules.user.domain.enums.AuthProvider;
+import com.example.jpaexample.modules.user.domain.enums.Role;
 import com.example.jpaexample.modules.user.infra.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,7 +27,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.security.AuthProvider;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -35,8 +35,9 @@ import java.security.AuthProvider;
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final TokenProvider tokenProvider;
 
 
     @PostMapping("/login")
@@ -50,7 +51,7 @@ public class AuthController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String token = JwtTokenProvider.generateToken(authentication);
+        String token = tokenProvider.createToken(authentication);
         return ResponseEntity.ok(new AuthResponse(token));
     }
 
@@ -65,13 +66,15 @@ public class AuthController {
                 .name(signUpRequest.getName())
                 .email(signUpRequest.getEmail())
                 .password(passwordEncoder.encode(signUpRequest.getPassword()))
+                .provider(AuthProvider.local)
+                .role(Role.USER)
                 .build();
         User result = userRepository.save(user);
 
 
         // FIXME?? 이부분은 왜있는거지?????
         URI location = ServletUriComponentsBuilder
-                .fromCurrentContextPath().path("/user/me")
+                .fromCurrentContextPath().path("/api/users/me")
                 .buildAndExpand(result.getId()).toUri();
 
         return ResponseEntity.created(location)
