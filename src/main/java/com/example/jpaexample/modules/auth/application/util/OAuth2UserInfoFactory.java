@@ -1,6 +1,6 @@
 package com.example.jpaexample.modules.auth.application.util;
 
-import com.example.jpaexample.modules.auth.application.exception.OAuth2AuthenticationProcessingException;
+import com.example.jpaexample.core.vo.exception.OAuth2AuthenticationProcessingException;
 import com.example.jpaexample.modules.auth.web.dto.oauth2.GoogleOAuth2UserInfo;
 import com.example.jpaexample.modules.auth.web.dto.oauth2.OAuth2UserInfo;
 import com.example.jpaexample.modules.user.domain.enums.AuthProvider;

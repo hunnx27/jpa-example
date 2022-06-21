@@ -1,6 +1,6 @@
 package com.example.jpaexample.modules.auth.web;
 
-import com.example.jpaexample.modules.auth.application.exception.BadRequestException;
+import com.example.jpaexample.core.vo.exception.BadRequestException;
 import com.example.jpaexample.modules.auth.application.util.CookieUtils;
 import com.example.jpaexample.modules.auth.application.util.TokenProvider;
 import com.example.jpaexample.modules.auth.infra.HttpCookieOAuth2AuthorizationRequestRepository;

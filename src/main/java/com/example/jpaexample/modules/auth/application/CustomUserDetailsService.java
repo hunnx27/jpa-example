@@ -1,6 +1,6 @@
 package com.example.jpaexample.modules.auth.application;
 
-import com.example.jpaexample.modules.auth.application.exception.ResourceNotFoundException;
+import com.example.jpaexample.core.vo.exception.ResourceNotFoundException;
 import com.example.jpaexample.modules.auth.web.dto.UserPrincipal;
 import com.example.jpaexample.modules.user.domain.User;
 import com.example.jpaexample.modules.user.infra.UserRepository;

@@ -2,6 +2,7 @@ package com.example.jpaexample.modules.auth.web;
 
 import com.example.jpaexample.core.enums.ErrorCode;
 import com.example.jpaexample.core.vo.exception.CustomException;
+import com.example.jpaexample.modules.auth.application.util.CookieUtils;
 import com.example.jpaexample.modules.auth.application.util.TokenProvider;
 import com.example.jpaexample.modules.auth.web.dto.request.LoginRequest;
 import com.example.jpaexample.modules.auth.web.dto.request.SignUpRequest;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.net.URI;
 
@@ -41,7 +43,7 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<?> authentiateUser(@Valid @RequestBody LoginRequest loginRequest){
+    public ResponseEntity<?> authentiateUser(@Valid @RequestBody LoginRequest loginRequest, HttpServletResponse response){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getEmail(),
@@ -52,6 +54,8 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = tokenProvider.createToken(authentication);
+        response.setHeader("Authorization", token);
+        CookieUtils.addCookie(response, "Authorization", token, 180);
         return ResponseEntity.ok(new AuthResponse(token));
     }
 
