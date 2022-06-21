@@ -1,4 +1,4 @@
-package com.example.jpaexample.core.advice;
+package com.example.jpaexample.core.web.advice;
 
 import com.example.jpaexample.core.enums.ErrorCode;
 import com.example.jpaexample.core.vo.exception.CustomException;
@@ -21,6 +21,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ErrorResponse> handleCustomException(CustomException e) {
         return ErrorResponse.toResponseEntity(e.getErrorCode());
+//        return new ErrorResponse(e.getErrorCode());
     }
 
     /**
@@ -43,8 +44,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ErrorCode errorCode = ErrorCode.INTERNAL_SERVER_ERROR;
         if(ex.getMessage()!=null){
             return ErrorResponse.toResponseEntity(errorCode, ex.getMessage());
+//            return new ErrorResponse(errorCode, ex.getMessage());
         }else{
             return ErrorResponse.toResponseEntity(errorCode);
+//            return new ErrorResponse(errorCode);
         }
 
     }

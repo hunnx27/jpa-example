@@ -71,8 +71,6 @@ public class AuthController {
                 .build();
         User result = userRepository.save(user);
 
-
-        // FIXME?? 이부분은 왜있는거지?????
         URI location = ServletUriComponentsBuilder
                 .fromCurrentContextPath().path("/api/users/me")
                 .buildAndExpand(result.getId()).toUri();

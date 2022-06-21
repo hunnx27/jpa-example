@@ -1,14 +1,13 @@
 package com.example.jpaexample.modules.sampleBoard.domain;
 
 import com.example.jpaexample.core.enums.YN;
-import com.example.jpaexample.modules.common.domain.BaseEntity;
+import com.example.jpaexample.core.domain.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

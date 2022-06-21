@@ -1,7 +1,7 @@
 package com.example.jpaexample.modules.user.domain;
 
 import com.example.jpaexample.modules.user.domain.enums.AuthProvider;
-import com.example.jpaexample.modules.common.domain.BaseEntity;
+import com.example.jpaexample.core.domain.BaseEntity;
 import com.example.jpaexample.modules.user.domain.enums.Role;
 import lombok.*;
 

@@ -1,5 +1,6 @@
 package com.example.jpaexample.config;
 
+import com.example.jpaexample.core.web.filter.ExceptionFilterHandler;
 import com.example.jpaexample.modules.auth.application.CustomOAuth2UserDetailsService;
 import com.example.jpaexample.modules.auth.application.CustomUserDetailsService;
 import com.example.jpaexample.modules.auth.infra.HttpCookieOAuth2AuthorizationRequestRepository;
@@ -123,6 +124,7 @@ public class SecurityConfig {
 
         // 시큐리티 기본 패스워드인증 필터전 JWT토큰 요청 파싱 필터 추가
         http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new ExceptionFilterHandler(), TokenAuthenticationFilter.class);
         return http.build();
     }
 
