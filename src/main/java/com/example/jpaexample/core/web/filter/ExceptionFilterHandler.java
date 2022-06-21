@@ -32,29 +32,26 @@ public class ExceptionFilterHandler extends OncePerRequestFilter {
 
         try {
             filterChain.doFilter(request, response);
-        } catch (Exception e) {
+        } catch(CustomException e){
+            log.error("Spring Security Filter Chain Custom Exception:", e);
+            setErrorResponse(e.getErrorCode(), response, e.getErrorCode().getDetail());
+        } catch(Exception e) {
             log.error("Spring Security Filter Chain Exception:", e);
-            setErrorResponse(HttpStatus.UNAUTHORIZED, response, e);
+            setErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR, response, e.getMessage());
         }
 
     }
 
-    public void setErrorResponse(HttpStatus status, HttpServletResponse response, Throwable ex){
-        response.setStatus(status.value());
+    public void setErrorResponse(ErrorCode errorCode, HttpServletResponse response, String message) {
+        response.setStatus(errorCode.getHttpStatus().value());
         response.setContentType("application/json");
-        ErrorResponse errorResponse;
-        if(ex instanceof CustomException){
-            errorResponse = new ErrorResponse(((CustomException) ex).getErrorCode());
-        }else {
-            errorResponse = new ErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR, ex.getMessage());
-        }
-
-        try{
-            String json = errorResponse.convertToJSON();
+        ErrorResponse errorReponse = new ErrorResponse(errorCode, message);
+        try {
+            String json = errorReponse.convertToJSON();
             log.error(json);
             byte[] body = json.getBytes(StandardCharsets.UTF_8);
             response.getOutputStream().write(body);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
