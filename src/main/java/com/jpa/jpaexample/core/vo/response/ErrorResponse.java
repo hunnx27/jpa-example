@@ -30,16 +30,17 @@ public class ErrorResponse implements Serializable {
     private final String message;
 
     public static ResponseEntity<ErrorResponse> toResponseEntity(ErrorCode errorCode) {
-        return toResponseEntity(errorCode, null);
+        return toResponseEntity(errorCode, new String[]{""});
     }
-    public static ResponseEntity<ErrorResponse> toResponseEntity(ErrorCode errorCode, String message) {
+
+    public static ResponseEntity<ErrorResponse> toResponseEntity(ErrorCode errorCode, String... args) {
         return ResponseEntity
                 .status(errorCode.getHttpStatus())
                 .body(ErrorResponse.builder()
                         .status(errorCode.getHttpStatus().value())
                         .error(errorCode.getHttpStatus().name())
                         .code(errorCode.name())
-                        .message(message!=null? message : errorCode.getDetail())
+                        .message(String.format(errorCode.getDetail(), args))
                         .build()
                 );
     }
@@ -50,11 +51,12 @@ public class ErrorResponse implements Serializable {
         this.code = errorCode.name();
         this.message = errorCode.getDetail();
     }
-    public ErrorResponse(ErrorCode errorCode, String message) {
+
+    public ErrorResponse(ErrorCode errorCode, String... args) {
         this.status = errorCode.getHttpStatus().value();
         this.error = errorCode.getHttpStatus().name();
         this.code = errorCode.name();
-        this.message = message;
+        this.message = String.format(errorCode.getDetail(), args);
     }
 
     public String convertToJSON() {
@@ -62,8 +64,7 @@ public class ErrorResponse implements Serializable {
         String orderJson = null;
         try {
             orderJson = objectMapper.writeValueAsString(this);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return orderJson;

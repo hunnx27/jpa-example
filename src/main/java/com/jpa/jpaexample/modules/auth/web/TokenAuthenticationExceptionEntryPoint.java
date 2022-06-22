@@ -26,7 +26,7 @@ public class TokenAuthenticationExceptionEntryPoint implements AuthenticationEnt
 //        //ErrorCode unAuthorizationCode = (ErrorCode) request.getAttribute("unauthorization.code");
 //        //request.setAttribute("response.failure.code", unAuthorizationCode.name());
 //        //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, unAuthorizationCode.getDetail());
-        throw new CustomException(ErrorCode.INVALID_AUTH_TOKEN);
+        throw new CustomException(ErrorCode.INVALID_AUTH_TOKEN_DETAIL, new String[]{e.getMessage()});
 //        //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, e.getMessage());
 
 //        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

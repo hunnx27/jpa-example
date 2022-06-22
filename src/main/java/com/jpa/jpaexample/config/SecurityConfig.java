@@ -4,8 +4,6 @@ import com.jpa.jpaexample.core.web.filter.ExceptionFilterHandler;
 import com.jpa.jpaexample.modules.auth.application.CustomOAuth2UserDetailsService;
 import com.jpa.jpaexample.modules.auth.application.CustomUserDetailsService;
 import com.jpa.jpaexample.modules.auth.infra.HttpCookieOAuth2AuthorizationRequestRepository;
-//import com.example.jpaexample.modules.auth.web.JwtAuthenticationExceptionEntryPoint;
-//import com.example.jpaexample.modules.auth.web.JwtAuthenticationFilter;
 import com.jpa.jpaexample.modules.auth.web.*;
 import com.jpa.jpaexample.modules.user.domain.enums.Role;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +28,8 @@ public class SecurityConfig {
     private final CustomOAuth2UserDetailsService customOAuth2UserService;
     private final OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
     private final OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler;
+    private final TokenAuthenticationExceptionEntryPoint tokenAuthenticationExceptionEntryPoint;
+    private final TokenAuthenticationDeniedHandler tokenAuthenticationDeniedHandler;
 
     // JWT 토큰 검증 필터
     @Bean
@@ -103,7 +103,8 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
             // JWT토큰 Exception 설정
             .and()
-                .exceptionHandling().authenticationEntryPoint(new TokenAuthenticationExceptionEntryPoint()) //Exception처리 설정
+                .exceptionHandling().authenticationEntryPoint(tokenAuthenticationExceptionEntryPoint) //Exception처리 설정
+                .accessDeniedHandler(tokenAuthenticationDeniedHandler)
             // OAuth2 설정
             .and()
                 .oauth2Login()
