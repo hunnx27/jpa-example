@@ -97,7 +97,7 @@ public class SecurityConfig {
                         "/**/*.css",
                         "/**/*.js")
                 .permitAll()
-                .antMatchers("/api/auth/**", "/api/oauth2/**")
+                .antMatchers("/api/auth/**", "/oauth2/**")
                 .permitAll()
                 .antMatchers("/api/**").hasRole(Role.USER.name())
                 .anyRequest().authenticated()
@@ -109,11 +109,11 @@ public class SecurityConfig {
             .and()
                 .oauth2Login()
                 .authorizationEndpoint()
-                    .baseUri("/oauth2/authorize") //OAuth 요청시 처리 설정
+                    .baseUri("/oauth2/authorization") //OAuth 요청시 처리 설정
                     .authorizationRequestRepository(cookieAuthorizationRequestRepository())
                     .and()
                 .redirectionEndpoint()
-                    .baseUri("/oauth2/callback/*") // OAuth 응답시 처리 설정
+                    .baseUri("/login/oauth2/callback/*") // OAuth 응답시 처리 설정
                     .and()
                 .userInfoEndpoint()
                     .userService(customOAuth2UserService) //OAuth UserDetail처리시 설정
